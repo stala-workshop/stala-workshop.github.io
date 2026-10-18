@@ -38,7 +38,7 @@
   --display:"Bricolage Grotesque","Avenir Next","Segoe UI",system-ui,sans-serif;
   --body:"IBM Plex Sans","Helvetica Neue",Arial,system-ui,sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
-  --wrap:1320px;
+  --wrap:1120px;
   color-scheme:light;
 }
 @media (prefers-color-scheme: dark){
@@ -81,7 +81,7 @@ p{margin:0}
 .hero{padding-top:clamp(16px,2.5vw,32px);text-align:center}
 .hero-title{position:relative;padding-top:clamp(40px,8vw,104px);padding-bottom:clamp(14px,1.6vw,20px)}
 .hero-title > :not(.sky){position:relative;z-index:1}
-.sky{position:absolute;left:0;bottom:0;z-index:0;width:100%;height:auto;fill:none;stroke:var(--accent);stroke-width:1.4;stroke-linejoin:round;stroke-linecap:round;opacity:.5}
+.sky{position:absolute;left:50%;bottom:0;transform:translateX(-50%);z-index:0;width:min(calc(100vw - 64px),1256px);height:auto;fill:none;stroke:var(--accent);stroke-width:1.4;stroke-linejoin:round;stroke-linecap:round;opacity:.5}
 .sky .solid{fill:var(--ground)}
 .sky *{vector-effect:non-scaling-stroke}
 .sky .far{opacity:.5}
