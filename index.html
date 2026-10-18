@@ -32,36 +32,35 @@
   --rule:#D3DAD8;
   --accent:#2445C4;
   --accent-soft:#E3E8FA;
-  --fault:#B93A26;
-  --pass:#1E7A5A;
   --band:#101820;
   --band-ink:#EDF1F4;
   --band-muted:#9AA7B2;
   --display:"Bricolage Grotesque","Avenir Next","Segoe UI",system-ui,sans-serif;
   --body:"IBM Plex Sans","Helvetica Neue",Arial,system-ui,sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
-  --wrap:1060px;
+  --wrap:1320px;
   color-scheme:light;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
     --ground:#0D1217; --surface:#151C23; --ink:#E6EBEF; --ink-2:#BAC4CC; --muted:#8894A0;
-    --rule:#26313B; --accent:#8EA4FF; --accent-soft:#1B2447; --fault:#F07E68; --pass:#5CC79E;
+    --rule:#26313B; --accent:#8EA4FF; --accent-soft:#1B2447;
     --band:#070A0D; --band-ink:#E6EBEF; --band-muted:#8894A0; color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
   --ground:#0D1217; --surface:#151C23; --ink:#E6EBEF; --ink-2:#BAC4CC; --muted:#8894A0;
-  --rule:#26313B; --accent:#8EA4FF; --accent-soft:#1B2447; --fault:#F07E68; --pass:#5CC79E;
+  --rule:#26313B; --accent:#8EA4FF; --accent-soft:#1B2447;
   --band:#070A0D; --band-ink:#E6EBEF; --band-muted:#8894A0; color-scheme:dark;
 }
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:70px}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
-body{background:var(--ground);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
 a{color:var(--accent);text-underline-offset:3px}
-a:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
 h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;letter-spacing:-.01em}
 p{margin:0}
 .wrap{max-width:var(--wrap);margin:0 auto;padding-inline:clamp(16px,4vw,32px)}
@@ -78,296 +77,218 @@ p{margin:0}
 .nav a.l:hover{background:var(--accent-soft);color:var(--ink)}
 
 /* hero */
-.hero{padding-block:clamp(36px,6vw,72px) clamp(32px,5vw,56px);border-bottom:1px solid var(--rule)}
-.hero-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(28px,5vw,56px);align-items:start}
+.hero{padding-block:clamp(36px,6vw,72px) clamp(32px,5vw,56px);border-bottom:1px solid var(--rule);text-align:center}
 .hero .label{margin-bottom:16px}
 .hero h1{font-size:clamp(40px,6vw,70px);line-height:.98;font-weight:800}
 .hero h1 .yr{color:var(--accent)}
+.hero .full b{color:var(--accent);font-weight:700}
 .hero .full{font-family:var(--display);font-weight:500;font-size:clamp(19px,2.2vw,25px);line-height:1.25;margin-top:12px}
-.chain{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:22px;font-family:var(--mono);font-size:12.5px;color:var(--ink-2)}
-.chain i{font-style:normal;color:var(--muted)}
-.chain b:last-child{color:var(--accent);font-weight:500}
-.chain b{font-weight:500}
 .facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--rule);border-block:1px solid var(--rule);margin-top:28px}
 .facts > div{background:var(--ground);padding:12px 14px 14px}
 .facts .v{font-family:var(--display);font-weight:700;font-size:17px;line-height:1.25;margin-top:3px}
 .facts .s{font-size:12.5px;color:var(--muted)}
-.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
-.btn{display:inline-flex;align-items:center;padding:10px 17px;font-weight:600;font-size:15px;text-decoration:none;border-radius:4px;border:1px solid var(--accent)}
-.btn.primary{background:var(--accent);color:var(--surface)}
-.btn.ghost{color:var(--accent)}
-
-/* assurance probe */
-.probe{background:var(--band);color:var(--band-ink);padding:22px;border-radius:6px}
-.probe .label{color:var(--band-muted)}
-.probe h2{font-size:19px;font-weight:700;margin-top:6px;line-height:1.3}
-.readout{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:18px}
-.readout .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--band-muted)}
-.readout .n{font-family:var(--mono);font-size:24px;white-space:nowrap;font-weight:500;font-variant-numeric:tabular-nums;line-height:1.2;margin-top:3px}
-.readout .zero{color:#6EDBAF}
-.readout .bound{color:#FFB199}
-.probe input[type=range]{width:100%;margin-top:18px;accent-color:#8EA4FF}
-.ticks{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10.5px;color:var(--band-muted)}
-.probe .note{font-size:13.5px;line-height:1.5;color:var(--band-muted);margin-top:16px;border-top:1px solid #2A3540;padding-top:13px}
+.intro{margin-top:10px;color:var(--ink-2)}
+.intro a{color:inherit}
 
 /* sections */
 section.s{padding-block:clamp(40px,6vw,72px);border-bottom:1px solid var(--rule)}
-.sh{display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:clamp(18px,4vw,48px)}
-.sh > header h2{font-size:clamp(26px,3.2vw,34px);font-weight:700;line-height:1.1;margin-top:6px}
-.lede{font-size:clamp(17px,1.8vw,19px);line-height:1.5;max-width:64ch}
-.lede strong{font-weight:600}
-.body-t{color:var(--ink-2);font-size:15px;max-width:68ch}
-
-.gaps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:28px}
-.gap{border-top:2px solid var(--ink);padding-top:12px}
-.gap.as{border-color:var(--accent)}
-.gap h3{font-size:18px;font-weight:700}
-.gap p{margin-top:6px;color:var(--ink-2);font-size:14.5px}
-
-.qs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:28px;padding-top:22px;border-top:1px solid var(--rule)}
-.qs h3{font-size:15px;font-weight:700}
-.qs p{font-size:14px;color:var(--muted);margin-top:4px}
-
-/* cfp */
-.topics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.sh{display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr);gap:clamp(18px,3.5vw,44px)}
+.sh > header h2{font-size:clamp(26px,3.2vw,34px);font-weight:700;line-height:1.1}
+.prose{display:grid;gap:14px;color:var(--ink-2);font-size:15.5px}
+.prose strong{color:var(--ink);font-weight:600}
+.sub-h{font-family:var(--display);font-size:19px;font-weight:700;margin:36px 0 12px}
+.sub-h:first-child{margin-top:0}
+.topics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
 .topics h3{font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-bottom:8px;border-bottom:1px solid var(--rule)}
 .topics ul{list-style:none;margin:0;padding:0}
-.topics li{padding:7px 0;border-bottom:1px solid var(--rule);font-size:14.5px}
-.scope{margin-top:26px;display:grid;gap:10px;max-width:72ch}
-.scope p{font-size:14.5px;color:var(--ink-2);padding-left:18px;position:relative}
-.scope p::before{content:"";position:absolute;left:0;top:9px;width:8px;height:8px;border-radius:50%}
-.scope p.in::before{background:var(--pass)}
-.scope p.out::before{background:var(--fault)}
-.scope strong{color:var(--ink);font-weight:600}
-.sub-h{font-family:var(--display);font-size:19px;font-weight:700;margin:34px 0 10px}
-.fmts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:4px;overflow:hidden}
-.fmts > div{background:var(--surface);padding:16px 18px}
-.fmts .pg{font-family:var(--display);font-weight:800;font-size:30px;line-height:1;color:var(--accent)}
-.fmts .pg small{font-size:14px;font-weight:500;color:var(--muted);margin-left:5px}
-.fmts h3{font-size:16px;margin-top:8px}
-.fmts p{font-size:14px;color:var(--ink-2);margin-top:4px}
-.notes{list-style:none;margin:0;padding:0;display:grid;gap:8px;max-width:72ch}
-.notes li{font-size:14.5px;color:var(--ink-2);padding-left:18px;position:relative}
+.topics h3{color:var(--accent)}
+.topics li{padding:7px 0;border-bottom:1px solid var(--rule);font-size:14px;line-height:1.45}
+.notes{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.notes li{font-size:15px;color:var(--ink-2);padding-left:18px;position:relative}
 .notes li::before{content:"·";position:absolute;left:4px;color:var(--accent);font-weight:700}
-.tba{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:3px;background:var(--accent-soft);color:var(--accent)}
+.notes strong{color:var(--ink);font-weight:600}
+.tba{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:3px;background:var(--accent-soft);color:var(--accent);white-space:nowrap}
 
 /* dates */
 .tl{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
-.tl li{display:grid;grid-template-columns:minmax(0,190px) minmax(0,1fr) auto;gap:14px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--rule)}
+.tl li{display:grid;grid-template-columns:minmax(0,190px) minmax(0,1fr);gap:14px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--rule)}
 .tl .d{font-family:var(--mono);font-size:13.5px;font-variant-numeric:tabular-nums}
-.tl .e{font-weight:500;font-size:15px}
-.tl .st{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:3px;white-space:nowrap;color:var(--muted);border:1px solid var(--rule)}
-.tl li.done .d,.tl li.done .e{color:var(--muted)}
-.tl li.next .st{background:var(--accent);color:var(--surface);border-color:var(--accent)}
-.tl li.key .e{font-weight:700}
+.tl .e{font-weight:600;font-size:15px}
 .aoe{font-size:13px;color:var(--muted);margin-top:12px}
 
 /* program */
 .prog-wrap{overflow-x:auto}
-.prog{width:100%;border-collapse:collapse;min-width:500px}
+.prog{width:100%;border-collapse:collapse;min-width:480px}
 .prog td{padding:11px 10px;border-bottom:1px solid var(--rule);vertical-align:baseline}
 .prog tr:first-child td{border-top:1px solid var(--rule)}
-.prog td.t{font-family:var(--mono);font-size:13px;white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--muted);width:118px;padding-left:0}
+.prog td.t{font-family:var(--mono);font-size:13px;white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--muted);width:130px;padding-left:0}
 .prog .what{font-weight:600;font-size:15px}
 .prog .who{font-size:13.5px;color:var(--muted);margin-top:1px}
 .prog .kind{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:2px}
-.prog .kind.plain{color:var(--muted)}
 .prog tr.brk .what{font-weight:400;color:var(--muted);font-size:14px}
-.panel{margin-top:32px;padding-top:24px;border-top:1px solid var(--rule)}
-.panel blockquote{margin:8px 0 0;font-family:var(--display);font-weight:700;font-size:clamp(21px,2.6vw,28px);line-height:1.2;border-left:2px solid var(--fault);padding-left:16px;max-width:30ch}
-.panel p{margin-top:12px;font-size:14.5px;color:var(--muted);max-width:66ch}
 
 /* people */
-.keynotes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-bottom:36px}
-.kn{border:1px solid var(--rule);background:var(--surface);padding:16px 18px;border-radius:4px}
-.kn h3{font-size:17px;margin-top:4px}
-.kn p{font-size:14px;color:var(--muted)}
-.orgs{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));border-top:1px solid var(--rule)}
+.orgs{display:grid;grid-template-columns:repeat(4,auto);border-top:1px solid var(--rule)}
 .org{padding:14px 16px 14px 0;border-bottom:1px solid var(--rule)}
 .org .role{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
 .org h3{font-size:17px;margin-top:3px}
-.org .aff{font-size:14px;color:var(--muted)}
-.pc-note{margin-top:26px;font-size:14.5px;color:var(--ink-2);max-width:70ch}
-
-/* venue */
-.venue{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--rule);border-block:1px solid var(--rule)}
-.venue > div{background:var(--ground);padding:14px 16px 16px}
-.venue .v{font-family:var(--display);font-weight:700;font-size:17px;margin-top:3px;line-height:1.25}
-.venue p{font-size:13px;color:var(--muted);margin-top:4px}
+.org .aff{font-size:14px;color:var(--muted);white-space:nowrap}
 
 footer.f{background:var(--band);color:var(--band-muted);padding-block:32px;font-size:14px}
 footer.f .wrap{display:flex;flex-wrap:wrap;gap:12px 36px;justify-content:space-between;align-items:end}
 footer.f strong{font-family:var(--display);color:var(--band-ink);font-size:18px;font-weight:800}
 footer.f a{color:#AFC0FF}
 
+@media (max-width:1280px){
+  .orgs{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .org .aff{white-space:normal}
+}
+@media (max-width:1100px){
+  .topics{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
 @media (max-width:860px){
-  .hero-grid,.sh,.qs{grid-template-columns:minmax(0,1fr)}
-  .qs{gap:16px}
+  .sh{grid-template-columns:minmax(0,1fr)}
 }
 @media (max-width:620px){
-  .facts,.gaps,.topics,.fmts,.keynotes,.venue{grid-template-columns:minmax(0,1fr)}
-  .tl li{grid-template-columns:minmax(0,1fr) auto;gap:2px 12px}
-  .tl .d{grid-column:1 / -1}
+  .facts,.topics,.orgs{grid-template-columns:minmax(0,1fr)}
+  .tl li{grid-template-columns:minmax(0,1fr);gap:2px}
   .nav .brand{display:none}
   .nav ul{margin-left:0}
-  .readout{grid-template-columns:minmax(0,1fr)}
 }
 </style>
-<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<style>[hidden]{display:none!important}</style>
 </head>
 <body>
 <nav class="nav" aria-label="Sections">
   <div class="wrap">
     <a class="brand" href="#top">STALA<span>’27</span></a>
     <ul>
-      <li><a class="l" href="#about">About</a></li>
       <li><a class="l" href="#cfp">Call for Papers</a></li>
-      <li><a class="l" href="#dates">Dates</a></li>
+      <li><a class="l" href="#dates">Important Dates</a></li>
       <li><a class="l" href="#program">Program</a></li>
-      <li><a class="l" href="#people">People</a></li>
-      <li><a class="l" href="#venue">Venue</a></li>
+      <li><a class="l" href="#committee">Committee</a></li>
+      <li><a class="l" href="#attend">Attend</a></li>
     </ul>
   </div>
 </nav>
 
 <header class="hero" id="top">
-  <div class="wrap hero-grid">
-    <div>
-      <div class="label">NDSS Symposium 2027 · Seoul · Co-located workshop</div>
-      <h1>STALA <span class="yr">2027</span></h1>
-      <p class="full">Workshop on Security Testing and Assurance for LLMs and Agents</p>
-      <p class="chain"><b>Systematic testing</b><i>→</i><b>Security evidence</b><i>→</i><b>Quantitative assurance</b></p>
-      <div class="facts">
-        <div><div class="label">Paper deadline</div><div class="v">11 Dec 2026</div><div class="s" id="countdown">AoE</div></div>
-        <div><div class="label">Workshop</div><div class="v">22 Mar 2027</div><div class="s">Full day, single track</div></div>
-        <div><div class="label">Proceedings</div><div class="v">Internet Society</div><div class="s">Published before the workshop</div></div>
-      </div>
-      <div class="cta">
-        <a class="btn primary" href="#cfp">Call for Papers</a>
-        <a class="btn ghost" href="#dates">Important dates</a>
-      </div>
+  <div class="wrap">
+    <h1>STALA <span class="yr">2027</span></h1>
+    <p class="full">Workshop on <b>S</b>ecurity <b>T</b>esting and <b>A</b>ssurance for <b>L</b>LMs and <b>A</b>gents</p>
+    <p class="intro">In conjunction with the <a href="https://www.ndss-symposium.org/ndss2027/">Network and Distributed System Security (NDSS) Symposium 2027</a></p>
+    <div class="facts">
+      <div><div class="label">Paper deadline</div><div class="v">11 Dec 2026</div><div class="s">23:59 AoE</div></div>
+      <div><div class="label">Workshop</div><div class="v">Mon 22 Mar 2027</div><div class="s">Seoul, Korea</div></div>
+      <div><div class="label">Proceedings</div><div class="v">Internet Society</div><div class="s">NDSS workshop proceedings</div></div>
     </div>
-
-    <aside class="probe" aria-labelledby="probe-h">
-      <div class="label">The assurance gap, in one slider</div>
-      <h2 id="probe-h">No attack succeeded. How secure is it?</h2>
-      <div class="readout">
-        <div><div class="k">Attacks that succeeded</div><div class="n zero">0 / <span id="trials">10,000</span></div></div>
-        <div><div class="k">Still plausible (95%)</div><div class="n bound" id="bound">≤ 0.030%</div></div>
-      </div>
-      <label class="label" for="n" style="display:block;margin-top:16px;color:var(--band-muted)">Test campaign size</label>
-      <input type="range" id="n" min="2" max="5" step="0.01" value="4" aria-describedby="probe-note">
-      <div class="ticks"><span>100</span><span>1k</span><span>10k</span><span>100k</span></div>
-      <p class="note" id="probe-note">Roughly <span id="oneIn">1 in 3,300</span> — and only for inputs like the ones tested. Whatever the campaign never reached is not covered at all.</p>
-    </aside>
   </div>
 </header>
 
 <main>
-  <section class="s" id="about">
-    <div class="wrap sh">
-      <header><div class="label">About</div><h2>From attack results to assurance</h2></header>
-      <div>
-        <p class="lede">LLMs and agents retrieve information, call tools and act for users, so a manipulated output can become a tool call, a data access or a code execution. <strong>How do we know one is secure enough?</strong> STALA works on systematic methods for testing LLMs and agents, and on turning the resulting evidence into security assurance.</p>
-        <div class="gaps">
-          <div class="gap">
-            <div class="label">Gap 1 · Testing</div>
-            <h3>What gets exercised</h3>
-            <p>Multi-turn context, retrieval, memory, tool calls, permissions and long-horizon trajectories make the attack surface vast. Static benchmarks sample a sliver of it, so a low attack-success rate may mean a weak campaign rather than a secure system.</p>
-          </div>
-          <div class="gap as">
-            <div class="label">Gap 2 · Assurance</div>
-            <h3>What the evidence supports</h3>
-            <p>Even a strong campaign produces finite evidence. A failure rate is not an assurance statement without its threat model, coverage and uncertainty — and when the model, prompt, tools or memory change, some of it stops holding.</p>
-          </div>
-        </div>
-        <div class="qs">
-          <div><h3>How should we test?</h3><p>Adaptive search over prompts, trajectories and environments instead of benchmark replay.</p></div>
-          <div><h3>What has been tested?</h3><p>Coverage, diversity and adequacy measures for probabilistic and agentic systems.</p></div>
-          <div><h3>What does it support?</h3><p>Residual risk, uncertainty, stopping criteria, and evidence that survives model updates.</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section class="s" id="cfp">
     <div class="wrap sh">
-      <header><div class="label">Call for Papers</div><h2>Topics of interest</h2></header>
+      <header><h2>Call for Papers</h2></header>
       <div>
-        <div class="topics">
+        <div class="prose">
+          <p>LLMs and AI agents now browse the web, write and run code, read our email and act with our credentials. Every new capability is also a new attack surface: a poisoned web page, document or memory entry can hijack an agent; a jailbreak can turn a model against its own guardrails; a single manipulated output can become a tool call, a data leak or a code execution. As these systems move into deployment, one question becomes pressing: <strong>how do we know whether an LLM or agent is secure enough?</strong></p>
+          <p>STALA focuses on <strong>security testing and assurance for LLMs and agents</strong>: finding vulnerabilities systematically, evaluating defenses rigorously, and turning the resulting evidence into security claims that can be trusted. Attack and defense papers are central to this. Every successful attack is a test the system failed, and every defense is a security claim that needs evidence. We welcome them alongside work on how to explore the attack space, what has actually been tested, and what assurance the results support as models, prompts and tools change.</p>
+          <p>Topics include, but are not limited to:</p>
+        </div>
+
+        <div class="topics" style="margin-top:20px">
           <div>
-            <h3>Testing &amp; evaluation</h3>
+            <h3>Discovering vulnerabilities</h3>
             <ul>
-              <li>LLM and agent security fuzzing</li>
-              <li>Red teaming and adversarial test generation</li>
-              <li>Adaptive and search-based security testing</li>
-              <li>Jailbreak and prompt-injection testing</li>
-              <li>Long-horizon and stateful agent evaluation</li>
-              <li>Vibe coding and secure code generation</li>
-              <li>Tool, API and MCP security testing</li>
-              <li>RAG, memory and context-poisoning evaluation</li>
-              <li>Multi-agent interaction and delegation testing</li>
-              <li>Test oracles, differential and metamorphic testing</li>
-              <li>Test harnesses, benchmarks and testbeds</li>
+              <li>Jailbreak and prompt-injection attacks, direct and indirect</li>
+              <li>Agent hijacking via tools, APIs and MCP</li>
+              <li>RAG, memory and context poisoning</li>
+              <li>Training-data poisoning and backdoors</li>
+              <li>Privacy leakage, training-data and system-prompt extraction</li>
+              <li>Multi-agent and delegation attacks</li>
+              <li>Insecure code generation and vibe coding</li>
+              <li>AI-on-hardware and side-channel attacks</li>
             </ul>
           </div>
           <div>
-            <h3>Coverage &amp; assurance</h3>
+            <h3>Evaluating defenses</h3>
             <ul>
-              <li>Prompt-, attack- and behavior-space coverage</li>
-              <li>Agent state, trajectory and tool-use coverage</li>
-              <li>Internal neuron, circuit and routing coverage</li>
-              <li>Test diversity, representativeness and adequacy</li>
-              <li>Benchmark contamination and generalization</li>
-              <li>Stopping criteria and failure-discovery rates</li>
-              <li>Residual-risk and rare-failure estimation</li>
+              <li>Adaptive-attack evaluation of guardrails, filters and prompt-injection defenses</li>
+              <li>Validating sandboxing, permissions and access control for agents</li>
+              <li>Runtime monitoring, detection and containment of unsafe actions</li>
+              <li>Measuring security–utility trade-offs of defenses</li>
+              <li>Robustness of safety alignment under adversarial pressure</li>
+              <li>Detection of poisoned data and backdoored models</li>
+              <li>Testing information-flow control in agent architectures</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Testing &amp; coverage</h3>
+            <ul>
+              <li>Security fuzzing and search-based testing</li>
+              <li>Automated red teaming and adversarial test generation</li>
+              <li>Long-horizon and stateful agent evaluation</li>
+              <li>Test oracles, differential and metamorphic testing</li>
+              <li>Coverage of prompt, attack and behavior spaces</li>
+              <li>Coverage of agent states, trajectories and tool use</li>
+              <li>Internal neuron, circuit, expert and routing coverage</li>
+              <li>Benchmarks, testbeds and contamination</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Assurance</h3>
+            <ul>
+              <li>Test adequacy, diversity and stopping criteria</li>
+              <li>Failure-discovery rates and residual-risk estimation</li>
+              <li>Confidence and calibration of security evidence</li>
               <li>Probabilistic assurance and evidence aggregation</li>
-              <li>Testing combined with formal or runtime guarantees</li>
-              <li>Compositional and continuous assurance</li>
+              <li>Combining testing with formal verification</li>
+              <li>Compositional assurance for agentic systems</li>
+              <li>Regression, transfer and continuous assurance</li>
               <li>Quantitative deployment and release criteria</li>
             </ul>
           </div>
         </div>
-        <div class="scope">
-          <p class="in"><strong>In scope:</strong> new attacks that contribute a reusable testing methodology, and safety failures tied to an explicit adversary, system boundary or enforceable property.</p>
-          <p class="out"><strong>Out of scope:</strong> AI ethics, fairness, governance and policy work without a concrete testing or assurance contribution.</p>
-        </div>
 
-        <h3 class="sub-h">Submissions</h3>
-        <div class="fmts">
-          <div>
-            <div class="pg">8<small>pages</small></div>
-            <h3>Full papers</h3>
-            <p>Complete contributions on testing, coverage or assurance. Excluding references.</p>
-          </div>
-          <div>
-            <div class="pg">4<small>pages</small></div>
-            <h3>Short, position &amp; experience papers</h3>
-            <p>Early methods, datasets, experience reports, negative results, grounded positions.</p>
-          </div>
-        </div>
-        <ul class="notes" style="margin-top:16px">
-          <li>Submission site: <span class="tba">Opens soon</span> — formatting and anonymisation instructions will be posted with it.</li>
-          <li>Negative results are welcome when they show that an intuitive metric, benchmark or assurance claim is misleading.</li>
-          <li>Reviewers separate attack novelty from evaluation novelty: improving how failures are searched for, measured or interpreted is a contribution in itself.</li>
-          <li>At least three independent reviews where feasible, with PC discussion for divergent cases. Artifact release encouraged.</li>
-          <li>Around 7–9 accepted papers, published by the Internet Society in the NDSS 2027 workshop proceedings before the workshop.</li>
+        <h3 class="sub-h">Paper categories</h3>
+        <ul class="notes">
+          <li><strong>Full papers:</strong> up to 8 pages, excluding references.</li>
+          <li><strong>Short, position and experience papers:</strong> up to 4 pages, excluding references. Early results, new attack ideas, benchmarks and datasets, experience reports, negative results and technically grounded positions. Negative results are particularly welcome when they show that an intuitive metric, benchmark or security claim is misleading.</li>
         </ul>
+
+        <h3 class="sub-h">Review criteria</h3>
+        <ul class="notes">
+          <li>Each paper will receive at least three independent reviews where feasible, followed by PC discussion for borderline or divergent cases.</li>
+          <li>Reviewers look for a clear threat model and a convincing evaluation: attacks should show what generalizes beyond the cases tested, and defenses should be evaluated against adaptive attackers.</li>
+          <li>Novelty can lie in the evaluation itself: a paper need not introduce a new vulnerability if it materially improves how failures are found, measured or interpreted.</li>
+          <li>Release of code, data and other artifacts is encouraged.</li>
+        </ul>
+
+        <h3 class="sub-h">Submission format</h3>
+        <ul class="notes">
+          <li><strong>Template:</strong> papers must be submitted as PDF using the <a href="https://www.ndss-symposium.org/ndss2027/submissions/templates/">NDSS 2027 templates</a>: US letter size (not A4), two-column layout with columns no more than 9.25 in. high and 3.5 in. wide, Times font of 10 pt or larger with 11 pt or larger line spacing.</li>
+          <li><strong>Anonymity:</strong> the review process is double-blind. Submissions must not include author names or affiliations, and authors should cite their own prior work in the third person.</li>
+          <li><strong>Originality:</strong> submissions must not substantially overlap with papers already published or simultaneously submitted to a journal, conference or workshop.</li>
+          <li><strong>Submission site:</strong> <span class="tba">Opens soon</span></li>
+        </ul>
+
+        <h3 class="sub-h">Publication and presentation</h3>
+        <div class="prose">
+          <p>Accepted papers will be published by the Internet Society in the NDSS Symposium 2027 co-located workshop proceedings, before the workshop. At least one author of each accepted paper must register for the workshop and present the paper.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="s" id="dates">
     <div class="wrap sh">
-      <header><div class="label">Timeline</div><h2>Important dates</h2></header>
+      <header><h2>Important Dates</h2></header>
       <div>
-        <ol class="tl" id="timeline">
-          <li data-date="2026-12-11" class="key"><span class="d">11 December 2026</span><span class="e">Paper submission deadline</span><span class="st"></span></li>
-          <li data-date="2027-01-22" data-start="2026-12-14"><span class="d">14 Dec – 22 Jan</span><span class="e">Review period</span><span class="st"></span></li>
-          <li data-date="2027-02-01" class="key"><span class="d">1 February 2027</span><span class="e">Author notification</span><span class="st"></span></li>
-          <li data-date="2027-02-19" class="key"><span class="d">19 February 2027</span><span class="e">Camera-ready due</span><span class="st"></span></li>
-          <li data-date="2027-02-26"><span class="d">26 February 2027</span><span class="e">Final program published</span><span class="st"></span></li>
-          <li data-date="2027-03-22" class="key"><span class="d">22 March 2027</span><span class="e">STALA 2027 at NDSS, Seoul</span><span class="st"></span></li>
+        <ol class="tl">
+          <li><span class="d">11 December 2026</span><span class="e">Paper submission deadline</span></li>
+          <li><span class="d">1 February 2027</span><span class="e">Author notification</span></li>
+          <li><span class="d">19 February 2027</span><span class="e">Camera-ready due</span></li>
+          <li><span class="d">22 March 2027</span><span class="e">Workshop</span></li>
         </ol>
         <p class="aoe">All deadlines are 23:59 Anywhere on Earth (UTC−12).</p>
       </div>
@@ -376,75 +297,54 @@ footer.f a{color:#AFC0FF}
 
   <section class="s" id="program">
     <div class="wrap sh">
-      <header><div class="label">Program</div><h2>A full day, one track</h2></header>
+      <header><h2>Program</h2></header>
       <div>
+        <p class="prose" style="margin-bottom:16px">Tentative; the final program will be published by 26 February 2027.</p>
         <div class="prog-wrap">
           <table class="prog">
             <tbody>
-              <tr><td class="t">09:00</td><td><div class="what">Opening: the test-to-assurance problem</div></td></tr>
-              <tr><td class="t">09:15</td><td><span class="kind">Keynote I</span><div class="what">Ahmad-Reza Sadeghi</div><div class="who">TU Darmstadt · Title to be announced</div></td></tr>
-              <tr class="brk"><td class="t">10:00</td><td><div class="what">Coffee break</div></td></tr>
-              <tr><td class="t">10:30</td><td><span class="kind plain">Session I</span><div class="what">Adaptive testing, fuzzing, red teaming, agent exploration</div></td></tr>
-              <tr class="brk"><td class="t">12:00</td><td><div class="what">Lunch break</div></td></tr>
-              <tr><td class="t">13:30</td><td><span class="kind">Keynote II</span><div class="what">Masashi Sugiyama</div><div class="who">RIKEN AIP / University of Tokyo · Title to be announced</div></td></tr>
-              <tr class="brk"><td class="t">14:15</td><td><div class="what">Coffee break</div></td></tr>
-              <tr><td class="t">14:30</td><td><span class="kind plain">Session II</span><div class="what">Coverage, test adequacy, quantitative assurance</div></td></tr>
-              <tr><td class="t">16:00</td><td><span class="kind plain">Panel</span><div class="what">“When have we tested enough to deploy?”</div></td></tr>
-              <tr><td class="t">16:50</td><td><div class="what">Paper awards</div></td></tr>
-              <tr><td class="t">17:05</td><td><div class="what">Closing synthesis and research agenda</div></td></tr>
+              <tr><td class="t">09:00–09:15</td><td><div class="what">Opening: the test-to-assurance problem</div></td></tr>
+              <tr><td class="t">09:15–10:00</td><td><span class="kind">Keynote I</span><div class="what">Ahmad-Reza Sadeghi</div><div class="who">TU Darmstadt</div></td></tr>
+              <tr class="brk"><td class="t">10:00–10:30</td><td><div class="what">Coffee break</div></td></tr>
+              <tr><td class="t">10:30–12:00</td><td><span class="kind">Session I</span><div class="what">Adaptive testing, fuzzing, red teaming and agent exploration</div></td></tr>
+              <tr class="brk"><td class="t">12:00–13:30</td><td><div class="what">Lunch break</div></td></tr>
+              <tr><td class="t">13:30–14:15</td><td><span class="kind">Keynote II</span><div class="what">Masashi Sugiyama</div><div class="who">RIKEN AIP / The University of Tokyo</div></td></tr>
+              <tr class="brk"><td class="t">14:15–14:30</td><td><div class="what">Coffee break</div></td></tr>
+              <tr><td class="t">14:30–16:00</td><td><span class="kind">Session II</span><div class="what">Coverage, test adequacy and quantitative assurance</div></td></tr>
+              <tr><td class="t">16:00–16:50</td><td><span class="kind">Panel</span><div class="what">“When have we tested enough to deploy?”</div></td></tr>
+              <tr><td class="t">16:50–17:05</td><td><div class="what">Paper awards</div></td></tr>
+              <tr><td class="t">17:05–17:20</td><td><div class="what">Closing synthesis and research agenda</div></td></tr>
             </tbody>
           </table>
-        </div>
-        <div class="panel">
-          <div class="label">Panel</div>
-          <blockquote>What evidence would convince you that an agent is secure enough to deploy?</blockquote>
-          <p>Panelists start from one deployment scenario and name the threat model, testing and coverage they would require. The moderator then changes an assumption — a new tool, a model update, wider permissions — and asks which conclusions still hold.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="s" id="people">
+  <section class="s" id="committee">
     <div class="wrap sh">
-      <header><div class="label">People</div><h2>Speakers &amp; organizers</h2></header>
+      <header><h2>Committee</h2></header>
       <div>
-        <div class="keynotes">
-          <div class="kn">
-            <div class="label" style="color:var(--accent)">Keynote · Confirmed</div>
-            <h3>Ahmad-Reza Sadeghi</h3>
-            <p>TU Darmstadt</p>
-          </div>
-          <div class="kn">
-            <div class="label" style="color:var(--accent)">Keynote · Confirmed</div>
-            <h3>Masashi Sugiyama</h3>
-            <p>RIKEN AIP / University of Tokyo</p>
-          </div>
-        </div>
-
-        <div class="label" style="margin-bottom:10px">Organizing committee</div>
+        <h3 class="sub-h">Organizing committee</h3>
         <div class="orgs">
+          <div class="org"><div class="role">Workshop Co-Chair</div><h3>Lichao Wu</h3><div class="aff">University of Bristol</div></div>
           <div class="org"><div class="role">Workshop Co-Chair</div><h3>Stjepan Picek</h3><div class="aff">University of Zagreb &amp; Radboud University</div></div>
           <div class="org"><div class="role">Workshop Co-Chair</div><h3>Wenkai Xu</h3><div class="aff">University of Warwick</div></div>
-          <div class="org"><div class="role">Workshop Co-Chair</div><h3>Lichao Wu</h3><div class="aff">University of Bristol</div></div>
           <div class="org"><div class="role">Workshop Co-Chair</div><h3>Alexandra Dmitrienko</h3><div class="aff">University of Duisburg-Essen</div></div>
           <div class="org"><div class="role">Publicity Chair</div><h3>Nan Lu</h3><div class="aff">University of Bristol</div></div>
         </div>
 
-        <p class="pc-note"><span class="tba">PC announced soon</span> &nbsp;Spanning adversarial ML, LLM and agent security, security testing, systems security, formal assurance and industry practice, with senior PhD students and postdocs as junior PC members.</p>
+        <h3 class="sub-h">Program committee</h3>
+        <p class="prose"><span><span class="tba">To be announced</span></span></p>
       </div>
     </div>
   </section>
 
-  <section class="s" id="venue">
+  <section class="s" id="attend">
     <div class="wrap sh">
-      <header><div class="label">Venue</div><h2>At NDSS 2027 in Seoul</h2></header>
-      <div>
-        <div class="venue">
-          <div><div class="label">Host event</div><div class="v">NDSS Symposium 2027</div><p>22–26 March 2027</p></div>
-          <div><div class="label">City</div><div class="v">Seoul, Korea</div><p>Venue details via NDSS</p></div>
-          <div><div class="label">Workshop day</div><div class="v">Monday 22 March</div><p>Registration through NDSS</p></div>
-        </div>
-        <p class="body-t" style="margin-top:18px">Attending STALA requires workshop registration through the <a href="https://www.ndss-symposium.org/ndss2027/">NDSS Symposium 2027 website</a>. After the event, this site keeps the accepted papers, keynote and panel materials, and a short summary of the open problems raised on the day.</p>
+      <header><h2>Attend</h2></header>
+      <div class="prose">
+        <p>Register for the workshop through the <a href="https://www.ndss-symposium.org/ndss2027/">NDSS Symposium 2027 website</a>.</p>
       </div>
     </div>
   </section>
@@ -452,44 +352,9 @@ footer.f a{color:#AFC0FF}
 
 <footer class="f">
   <div class="wrap">
-    <div>
-      <strong>STALA 2027</strong>
-      <div style="margin-top:4px">Security Testing and Assurance for LLMs and Agents · <a href="https://www.ndss-symposium.org/ndss2027/">NDSS Symposium 2027</a></div>
-    </div>
-    <div>Questions? Contact the workshop chairs.</div>
+    <strong>STALA 2027</strong>
+    <div>Questions? <a href="#committee">Contact the co-organizers</a>.</div>
   </div>
 </footer>
-
-<script>
-(function(){
-  var slider=document.getElementById('n'), trialsEl=document.getElementById('trials'),
-      boundEl=document.getElementById('bound'), oneInEl=document.getElementById('oneIn');
-  function fmtPct(p){ var v=p*100, d = v>=1?1 : v>=0.1?2 : v>=0.01?3 : 4; return '≤ '+v.toFixed(d)+'%'; }
-  function round2(x){ var m=Math.pow(10,Math.max(0,String(Math.round(x)).length-2)); return Math.round(x/m)*m; }
-  function update(){
-    var n=Math.round(Math.pow(10,parseFloat(slider.value)));
-    var p=1-Math.pow(0.05,1/n);                       // exact 95% upper bound, zero failures in n trials
-    trialsEl.textContent=n.toLocaleString('en-GB');
-    boundEl.textContent=fmtPct(p);
-    oneInEl.textContent='1 in '+round2(1/p).toLocaleString('en-GB');
-  }
-  slider.addEventListener('input',update);
-  update();
-
-  function aoeEnd(s){ var a=s.split('-'); return Date.UTC(+a[0],+a[1]-1,+a[2],23,59,59)+12*3600e3; }
-  function aoeStart(s){ var a=s.split('-'); return Date.UTC(+a[0],+a[1]-1,+a[2],0,0,0)+12*3600e3; }
-  var now=Date.now(), nextSet=false;
-  document.querySelectorAll('#timeline li').forEach(function(li){
-    var end=aoeEnd(li.dataset.date), start=li.dataset.start?aoeStart(li.dataset.start):null, st=li.querySelector('.st');
-    if(now>end){ li.classList.add('done'); st.textContent='Passed'; }
-    else if(start && now>=start){ li.classList.add('next'); st.textContent='Now'; nextSet=true; }
-    else if(!nextSet){ li.classList.add('next'); st.textContent='Next'; nextSet=true; }
-    else { st.textContent='Upcoming'; }
-  });
-  var dl=aoeEnd('2026-12-11'), cd=document.getElementById('countdown');
-  if(now<dl){ var days=Math.ceil((dl-now)/864e5); cd.textContent=days+' day'+(days===1?'':'s')+' left · AoE'; }
-  else { cd.textContent='Submissions closed'; }
-})();
-</script>
 </body>
 </html>

@@ -2,13 +2,13 @@
 
 Source for **https://stala-workshop.github.io**, the website of STALA 2027, the Workshop on Security Testing and Assurance for LLMs and Agents, co-located with the NDSS Symposium 2027 in Seoul.
 
-The site is a single static page served by GitHub Pages. It has no build step, no framework and no dependencies. Fonts load from Google Fonts.
+The site is a single static page served by GitHub Pages. It has no build step, no framework, no scripts and no dependencies. Fonts load from Google Fonts.
 
 ## Files
 
 | File | Purpose |
 |---|---|
-| `index.html` | The whole website: content, styles and the small interactive script |
+| `index.html` | The whole website: content and styles |
 | `404.html` | Page shown for broken links |
 | `favicon.svg` | Browser-tab icon |
 | `og-image.png` | Preview image (1200×630) shown when the link is shared on Slack, X, LinkedIn or email |
@@ -17,17 +17,17 @@ The site is a single static page served by GitHub Pages. It has no build step, n
 
 ## Editing
 
-1. Open `index.html` on GitHub and click the pencil icon (**Edit this file**).
-2. Use Ctrl/Cmd + F to find the text you want to change. Each part of the page is a `<section>` with its own id: `about`, `cfp`, `dates`, `program`, `people`, `venue`.
-3. Click **Commit changes**. The live site updates within about a minute.
+1. Open `index.html` on GitHub and click the pencil icon (**Edit this file**), or edit a local clone and push.
+2. Use Ctrl/Cmd + F to find the text you want to change. Each part of the page is a `<section>` with its own id: `cfp`, `dates`, `program`, `committee`, `attend`.
+3. Commit the change. The live site updates within about a minute.
 
 Things that commonly need updating:
 
 - **Submission link.** Search for `Opens soon` and replace that `<span class="tba">…</span>` with a link.
-- **Keynote II.** Search for `Speaker to be announced` (program) and `To be announced` (People).
-- **Dates.** Each item in the Important dates list has a `data-date="YYYY-MM-DD"` attribute. The Passed / Next / Upcoming labels and the deadline countdown are calculated from these dates (Anywhere on Earth), so change the attribute along with the visible text. The countdown deadline is also set near the end of the script: `aoeEnd('2026-12-11')`.
-- **Program committee.** Replace the text in the `pc-note` block with the list of names.
-- **After editing dates or content,** update `<lastmod>` in `sitemap.xml`.
+- **Program committee.** Search for `To be announced` in the `committee` section and replace it with the list of names.
+- **Dates.** The paper deadline and workshop date appear twice: in the summary boxes at the top (`class="facts"`) and in the Important Dates list. Change both.
+- **Program.** The tentative program is the table in the `program` section.
+- **After editing content,** update `<lastmod>` in `sitemap.xml`.
 
 ## Hosting setup (one-off)
 
@@ -37,4 +37,4 @@ Things that commonly need updating:
 
 ## Organisers
 
-Stjepan Picek, Wenkai Xu, Lichao Wu and Alexandra Dmitrienko (Workshop Co-Chairs); Nan Lu (Publicity Chair).
+Lichao Wu, Stjepan Picek, Wenkai Xu and Alexandra Dmitrienko (Workshop Co-Chairs); Nan Lu (Publicity Chair).
