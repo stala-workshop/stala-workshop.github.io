@@ -2,13 +2,13 @@
 
 Source for **https://stala-workshop.github.io**, the website of STALA 2027, the Workshop on Security Testing and Assurance for LLMs and Agents, co-located with the NDSS Symposium 2027 in Seoul.
 
-The site is a single static page served by GitHub Pages. It has no build step, no framework and no dependencies; one small inline script highlights the menu tab of the section in view. Fonts load from Google Fonts.
+The site is a single static page served by GitHub Pages. It has no build step, no framework and no dependencies; small inline scripts highlight the menu tab of the section in view and provide the light/dark switch. Fonts load from Google Fonts.
 
 ## Files
 
 | File | Purpose |
 |---|---|
-| `index.html` | The whole website: content, styles and the menu-highlight script |
+| `index.html` | The whole website: content, styles and the menu-highlight and light/dark scripts |
 | `404.html` | Page shown for broken links |
 | `favicon.svg` | Browser-tab icon |
 | `og-image.png` | Preview image (1200×630) shown when the link is shared on Slack, X, LinkedIn or email |
