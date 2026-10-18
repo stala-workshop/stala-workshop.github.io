@@ -71,10 +71,11 @@ p{margin:0}
 .nav .wrap{display:flex;align-items:center;gap:20px;min-height:54px}
 .brand{font-family:var(--display);font-weight:800;font-size:17px;color:var(--ink);text-decoration:none;white-space:nowrap}
 .brand span{color:var(--accent)}
-.nav ul{list-style:none;display:flex;gap:2px;margin:0 0 0 auto;padding:0;overflow-x:auto;scrollbar-width:none}
+.nav ul{position:relative;list-style:none;display:flex;gap:2px;margin:0 0 0 auto;padding:0;overflow-x:auto;scrollbar-width:none}
 .nav ul::-webkit-scrollbar{display:none}
 .nav a.l{display:block;padding:6px 10px;font-size:14px;color:var(--ink-2);text-decoration:none;white-space:nowrap;border-radius:4px}
 .nav a.l:hover{background:var(--accent-soft);color:var(--ink)}
+.nav a.l.active{background:var(--accent-soft);color:var(--accent);font-weight:600}
 
 /* hero */
 .hero{padding-top:clamp(16px,2.5vw,32px);text-align:center}
@@ -380,6 +381,54 @@ section.s:first-child{padding-top:clamp(28px,4vw,48px)}
     </div>
   </section>
 </main>
+
+<script>
+// Highlight the nav tab of the section currently in view.
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('.nav a.l'));
+  var sections = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  var list = document.querySelector('.nav ul');
+  var current = null, ticking = false, clickedUntil = 0;
+
+  function setActive(next){
+    if (next === current) return;
+    if (current) { current.classList.remove('active'); current.removeAttribute('aria-current'); }
+    current = next;
+    if (current) {
+      current.classList.add('active');
+      current.setAttribute('aria-current', 'true');
+      // keep the active tab visible when the menu scrolls sideways on phones
+      var l = current.offsetLeft, r = l + current.offsetWidth;
+      if (l < list.scrollLeft) list.scrollLeft = l;
+      else if (r > list.scrollLeft + list.clientWidth) list.scrollLeft = r - list.clientWidth;
+    }
+  }
+
+  // A clicked tab stays highlighted while the page scrolls to it, even if the
+  // page cannot scroll far enough to bring that section to the top.
+  links.forEach(function(a){
+    a.addEventListener('click', function(){ clickedUntil = Date.now() + 1000; setActive(a); });
+  });
+
+  function update(){
+    ticking = false;
+    if (Date.now() < clickedUntil) return;
+    // A section is current once its top passes a reading line just below the menu.
+    // Over the last screenful of scrolling the line slides down to the bottom of the
+    // window, so short sections near the end of the page still get their turn.
+    var vh = window.innerHeight, base = document.querySelector('.nav').offsetHeight + 24;
+    var remaining = document.documentElement.scrollHeight - (window.scrollY + vh);
+    var line = remaining < vh ? base + (vh - base) * (1 - Math.max(0, remaining) / vh) : base;
+    var idx = -1;
+    sections.forEach(function(s, i){ if (s && s.getBoundingClientRect().top <= line - 1) idx = i; });
+    setActive(idx >= 0 ? links[idx] : null);
+  }
+  function onScroll(){ if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll);
+  update();
+})();
+</script>
 
 </body>
 </html>
