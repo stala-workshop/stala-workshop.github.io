@@ -77,14 +77,21 @@ p{margin:0}
 .nav a.l:hover{background:var(--accent-soft);color:var(--ink)}
 
 /* hero */
-.hero{padding-block:clamp(36px,6vw,72px) clamp(32px,5vw,56px);border-bottom:1px solid var(--rule);text-align:center}
+.hero{padding-top:clamp(16px,2.5vw,32px);text-align:center}
+.hero-title{position:relative;padding-top:clamp(40px,8vw,104px);padding-bottom:clamp(14px,1.6vw,20px)}
+.hero-title > :not(.sky){position:relative;z-index:1}
+.sky{position:absolute;left:0;bottom:0;z-index:0;width:100%;height:auto;fill:none;stroke:var(--accent);stroke-width:1.4;stroke-linejoin:round;stroke-linecap:round;opacity:.5}
+.sky .solid{fill:var(--ground)}
+.sky *{vector-effect:non-scaling-stroke}
+.sky .far{opacity:.5}
 .hero .label{margin-bottom:16px}
 .hero h1{font-size:clamp(40px,6vw,70px);line-height:.98;font-weight:800}
 .hero h1 .yr{color:var(--accent)}
 .hero .full b{color:var(--accent);font-weight:700}
 .hero .full{font-family:var(--display);font-weight:500;font-size:clamp(19px,2.2vw,25px);line-height:1.25;margin-top:12px}
-.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--rule);border-block:1px solid var(--rule);margin-top:28px}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--rule);border-block:1px solid var(--rule)}
 .facts > div{background:var(--ground);padding:12px 14px 14px}
+.facts .label{font-size:14px}
 .facts .v{font-family:var(--display);font-weight:700;font-size:17px;line-height:1.25;margin-top:3px}
 .facts .s{font-size:12.5px;color:var(--muted)}
 .intro{margin-top:10px;color:var(--ink-2)}
@@ -92,6 +99,8 @@ p{margin:0}
 
 /* sections */
 section.s{padding-block:clamp(40px,6vw,72px);border-bottom:1px solid var(--rule)}
+section.s:last-child{border-bottom:0}
+section.s:first-child{padding-top:clamp(28px,4vw,48px)}
 .sh{display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr);gap:clamp(18px,3.5vw,44px)}
 .sh > header h2{font-size:clamp(26px,3.2vw,34px);font-weight:700;line-height:1.1}
 .prose{display:grid;gap:14px;color:var(--ink-2);font-size:15.5px}
@@ -134,10 +143,6 @@ section.s{padding-block:clamp(40px,6vw,72px);border-bottom:1px solid var(--rule)
 .org h3{font-size:17px;margin-top:3px}
 .org .aff{font-size:14px;color:var(--muted);white-space:nowrap}
 
-footer.f{background:var(--band);color:var(--band-muted);padding-block:32px;font-size:14px}
-footer.f .wrap{display:flex;flex-wrap:wrap;gap:12px 36px;justify-content:space-between;align-items:end}
-footer.f strong{font-family:var(--display);color:var(--band-ink);font-size:18px;font-weight:800}
-footer.f a{color:#AFC0FF}
 
 @media (max-width:1280px){
   .orgs{grid-template-columns:repeat(4,minmax(0,1fr))}
@@ -174,9 +179,34 @@ footer.f a{color:#AFC0FF}
 
 <header class="hero" id="top">
   <div class="wrap">
+    <div class="hero-title">
     <h1>STALA <span class="yr">2027</span></h1>
     <p class="full">Workshop on <b>S</b>ecurity <b>T</b>esting and <b>A</b>ssurance for <b>L</b>LMs and <b>A</b>gents</p>
     <p class="intro">In conjunction with the <a href="https://www.ndss-symposium.org/ndss2027/">Network and Distributed System Security (NDSS) Symposium 2027</a></p>
+    <svg class="sky" viewBox="0 0 1200 240" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">
+      <!-- Left: Bugaksan, N Seoul Tower on Namsan, Gwanghwamun -->
+      <path class="far" d="M0 172 L40 150 L80 168 L130 118 L185 156 L215 142 L258 240"/>
+      <path class="solid" d="M0 240 Q57 200 120 240 Z"/>
+      <path class="solid" d="M52 221 V90 M58 221 V90"/>
+      <path class="solid" d="M44 90 H66 L63 74 H47 Z"/>
+      <path d="M48 100 H62 M55 74 V24 M51 50 H59"/>
+      <g transform="translate(162 240) scale(1.25) translate(-600 -150)">
+        <rect class="solid" x="545" y="122" width="110" height="28"/>
+        <path class="solid" d="M568 150 V138 A7 7 0 0 1 582 138 V150 M593 150 V138 A7 7 0 0 1 607 138 V150 M618 150 V138 A7 7 0 0 1 632 138 V150"/>
+        <path d="M570 113 V122 M590 113 V122 M610 113 V122 M630 113 V122"/>
+        <path class="solid" d="M528 120 C542 122 550 114 560 108 H640 C650 114 658 122 672 120 Z"/>
+        <rect class="solid" x="570" y="99" width="60" height="9"/>
+        <path class="solid" d="M552 101 C562 103 568 95 577 90 H623 C632 95 638 103 648 101 Z"/>
+        <path class="solid" d="M577 90 L587 81 H613 L623 90"/>
+        <path d="M587 81 Q582 79 579 76 M613 81 Q618 79 621 76"/>
+      </g>
+      <!-- Right: Lotte World Tower and city -->
+      <path class="far" d="M930 240 L985 196 L1035 212 L1090 168 L1160 204 L1200 186"/>
+      <path class="solid" d="M985 240 V208 H1005 V240 M1010 240 V192 H1030 V240 M1035 240 V214 H1061 V240 M1066 240 V184 H1084 V240 M1089 240 V202 H1117 V240 M1162 240 V196 H1180 V240 M1184 240 V214 H1200 V240"/>
+      <path class="solid" d="M1124 240 C1129 170 1135 100 1140 30 C1145 100 1151 170 1156 240 Z"/>
+      <path d="M1140 30 V16"/>
+    </svg>
+    </div>
     <div class="facts">
       <div><div class="label">Paper deadline</div><div class="v">11 Dec 2026</div><div class="s">23:59 AoE</div></div>
       <div><div class="label">Workshop</div><div class="v">Mon 22 Mar 2027</div><div class="s">Seoul, Korea</div></div>
@@ -269,6 +299,7 @@ footer.f a{color:#AFC0FF}
           <li><strong>Template:</strong> papers must be submitted as PDF using the <a href="https://www.ndss-symposium.org/ndss2027/submissions/templates/">NDSS 2027 templates</a>: US letter size (not A4), two-column layout with columns no more than 9.25 in. high and 3.5 in. wide, Times font of 10 pt or larger with 11 pt or larger line spacing.</li>
           <li><strong>Anonymity:</strong> the review process is double-blind. Submissions must not include author names or affiliations, and authors should cite their own prior work in the third person.</li>
           <li><strong>Originality:</strong> submissions must not substantially overlap with papers already published or simultaneously submitted to a journal, conference or workshop.</li>
+          <li><strong>Policies:</strong> submissions must follow the <a href="https://www.ndss-symposium.org/ndss2027/submissions/call-for-papers/">NDSS 2027 policies</a>, including disclosure of generative AI use and treatment of ethical considerations.</li>
           <li><strong>Submission site:</strong> <span class="tba">Opens soon</span></li>
         </ul>
 
@@ -350,11 +381,5 @@ footer.f a{color:#AFC0FF}
   </section>
 </main>
 
-<footer class="f">
-  <div class="wrap">
-    <strong>STALA 2027</strong>
-    <div>Questions? <a href="#committee">Contact the co-organizers</a>.</div>
-  </div>
-</footer>
 </body>
 </html>
