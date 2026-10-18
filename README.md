@@ -37,4 +37,4 @@ Things that commonly need updating:
 
 ## Organisers
 
-Lichao Wu, Stjepan Picek, Wenkai Xu and Alexandra Dmitrienko (Workshop Co-Chairs); Nan Lu (Publicity Chair).
+Lichao Wu, Wenkai Xu, Stjepan Picek and Alexandra Dmitrienko (Workshop Co-Chairs); Nan Lu (Publicity Chair).
