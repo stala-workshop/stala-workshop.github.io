@@ -11,6 +11,7 @@ The site is a single static page served by GitHub Pages. It has no build step, n
 | `index.html` | The whole website: content, styles and the menu-highlight and light/dark scripts |
 | `404.html` | Page shown for broken links |
 | `favicon.svg` | Browser-tab icon |
+| `STALA_2027_poster.pdf` | Call-for-papers poster, linked under the Call for Papers heading |
 | `og-image.png` | Preview image (1200×630) shown when the link is shared on Slack, X, LinkedIn or email |
 | `robots.txt`, `sitemap.xml` | Help search engines index the site |
 | `.nojekyll` | Tells GitHub Pages to serve the files as they are, without Jekyll processing |

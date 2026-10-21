@@ -117,6 +117,9 @@ section.s:last-child{border-bottom:0}
 section.s:first-child{padding-top:clamp(28px,4vw,48px)}
 .sh{display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr);gap:clamp(18px,3.5vw,44px)}
 .sh > header h2{font-size:clamp(26px,3.2vw,34px);font-weight:700;line-height:1.1}
+.poster-link{display:inline-flex;align-items:center;gap:7px;margin-top:14px;padding:7px 12px;border:1px solid var(--accent);border-radius:4px;font-size:14px;font-weight:600;text-decoration:none;color:var(--accent)}
+.poster-link:hover{background:var(--accent-soft)}
+.poster-link svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .prose{display:grid;gap:14px;color:var(--ink-2);font-size:15.5px}
 .prose strong{color:var(--ink);font-weight:600}
 .sub-h{font-family:var(--display);font-size:19px;font-weight:700;margin:36px 0 12px}
@@ -236,7 +239,13 @@ section.s:first-child{padding-top:clamp(28px,4vw,48px)}
 <main>
   <section class="s" id="cfp">
     <div class="wrap sh">
-      <header><h2>Call for Papers</h2></header>
+      <header>
+        <h2>Call for Papers</h2>
+        <a class="poster-link" href="STALA_2027_poster.pdf" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M12 11v6M9.5 14.5 12 17l2.5-2.5"/></svg>
+          CfP poster (PDF)
+        </a>
+      </header>
       <div>
         <div class="prose">
           <p>LLMs and AI agents now browse the web, write and run code, read our email and act with our credentials. Every new capability is also a new attack surface: a poisoned web page, document or memory entry can hijack an agent; a jailbreak can turn a model against its own guardrails; a single manipulated output can become a tool call, a data leak or a code execution. As these systems move into deployment, one question becomes pressing: <strong>how do we know whether an LLM or agent is secure enough?</strong></p>
