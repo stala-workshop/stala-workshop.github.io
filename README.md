@@ -25,7 +25,7 @@ The site is a single static page served by GitHub Pages. It has no build step, n
 Things that commonly need updating:
 
 - **Submission link.** Search for `Opens soon` and replace that `<span class="tba">…</span>` with a link.
-- **Program committee.** Search for `To be announced` in the `committee` section and replace it with the list of names.
+- **Program committee.** The `<ul class="pc">` list in the `committee` section, one `<li>` per member, sorted by surname.
 - **Dates.** The paper deadline and workshop date appear twice: in the summary boxes at the top (`class="facts"`) and in the Important Dates list. Change both.
 - **Program.** The tentative program is the table in the `program` section.
 - **After editing content,** update `<lastmod>` in `sitemap.xml`.

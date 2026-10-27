@@ -154,17 +154,12 @@ section.s:first-child{padding-top:clamp(28px,4vw,48px)}
 .prog tr.brk .what{font-weight:400;color:var(--muted);font-size:14px}
 
 /* people */
-.orgs{display:grid;grid-template-columns:repeat(4,auto);border-top:1px solid var(--rule)}
-.org{padding:14px 16px 14px 0;border-bottom:1px solid var(--rule)}
-.org .role{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
-.org h3{font-size:17px;margin-top:3px}
-.org .aff{font-size:14px;color:var(--muted);white-space:nowrap}
+.pc{list-style:none;margin:0;padding:0;columns:2 300px;column-gap:32px;border-top:1px solid var(--rule);padding-top:12px}
+.pc li{break-inside:avoid;padding:4px 0;font-size:14px;color:var(--muted);line-height:1.45}
+.pc b{color:var(--ink);font-weight:600}
+.pc.one{columns:1}
 
 
-@media (max-width:1280px){
-  .orgs{grid-template-columns:repeat(4,minmax(0,1fr))}
-  .org .aff{white-space:normal}
-}
 @media (max-width:1100px){
   .topics{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
@@ -172,7 +167,7 @@ section.s:first-child{padding-top:clamp(28px,4vw,48px)}
   .sh{grid-template-columns:minmax(0,1fr)}
 }
 @media (max-width:620px){
-  .facts,.topics,.orgs{grid-template-columns:minmax(0,1fr)}
+  .facts,.topics{grid-template-columns:minmax(0,1fr)}
   .tl li{grid-template-columns:minmax(0,1fr);gap:2px}
   .nav .brand{display:none}
   .nav ul{margin-left:0}
@@ -383,17 +378,51 @@ section.s:first-child{padding-top:clamp(28px,4vw,48px)}
     <div class="wrap sh">
       <header><h2>Committee</h2></header>
       <div>
-        <h3 class="sub-h">Organizing committee</h3>
-        <div class="orgs">
-          <div class="org"><div class="role">Workshop Co-Chair</div><h3>Lichao Wu</h3><div class="aff">University of Bristol</div><div class="aff">United Kingdom</div></div>
-          <div class="org"><div class="role">Workshop Co-Chair</div><h3>Wenkai Xu</h3><div class="aff">University of Warwick</div><div class="aff">United Kingdom</div></div>
-          <div class="org"><div class="role">Workshop Co-Chair</div><h3>Stjepan Picek</h3><div class="aff">University of Zagreb &amp; Radboud University</div><div class="aff">Croatia &amp; the Netherlands</div></div>
-          <div class="org"><div class="role">Workshop Co-Chair</div><h3>Alexandra Dmitrienko</h3><div class="aff">University of Duisburg-Essen</div><div class="aff">Germany</div></div>
-          <div class="org"><div class="role">Publicity Chair</div><h3>Nan Lu</h3><div class="aff">University of Bristol</div><div class="aff">United Kingdom</div></div>
-        </div>
+        <h3 class="sub-h">Workshop co-chairs</h3>
+        <ul class="pc one">
+          <li><b>Lichao Wu</b>, University of Bristol, UK</li>
+          <li><b>Wenkai Xu</b>, University of Warwick, UK</li>
+          <li><b>Stjepan Picek</b>, University of Zagreb &amp; Radboud University, Croatia &amp; Netherlands</li>
+          <li><b>Alexandra Dmitrienko</b>, University of Duisburg-Essen, Germany</li>
+        </ul>
+
+        <h3 class="sub-h">Publicity chair</h3>
+        <ul class="pc one">
+          <li><b>Nan Lu</b>, University of Bristol, UK</li>
+        </ul>
 
         <h3 class="sub-h">Program committee</h3>
-        <p class="prose"><span><span class="tba">To be announced</span></span></p>
+        <ul class="pc">
+          <li><b>Giovanni Apruzzese</b>, Reykjavik University, Iceland</li>
+          <li><b>Marco Arazzi</b>, University of Pavia, Italy</li>
+          <li><b>Cexu Fu</b>, University of Bristol, UK</li>
+          <li><b>Varun Gadey</b>, University of Duisburg-Essen, Germany</li>
+          <li><b>Vinitha Reddy Gankidi</b>, Apple, USA</li>
+          <li><b>Liting Huang</b>, Newcastle University, UK</li>
+          <li><b>Utkarsh Kanwat</b>, AutonomyAI, USA</li>
+          <li><b>Sengim Karayalcin</b>, Leiden University, Netherlands</li>
+          <li><b>Hyoungshick Kim</b>, Sungkyunkwan University, South Korea</li>
+          <li><b>Minchan Kwon</b>, KAIST, South Korea</li>
+          <li><b>Jona te Lintelo</b>, Rabobank, Netherlands</li>
+          <li><b>Mengxiang Liu</b>, University of Bristol, UK</li>
+          <li><b>Xiaoyang Liu</b>, Newcastle University, UK</li>
+          <li><b>Zhuoran Liu</b>, University of Amsterdam, Netherlands</li>
+          <li><b>Ziyao Liu</b>, NTU, Singapore</li>
+          <li><b>Louis Meyer</b>, University of Warwick, UK</li>
+          <li><b>Antonino Nocera</b>, University of Pavia, Italy</li>
+          <li><b>Phillip Rieger</b>, TU Graz, Austria</li>
+          <li><b>Christoph Sendner</b>, UC Irvine, USA</li>
+          <li><b>Nikhilesh Singh</b>, TU Darmstadt, Germany</li>
+          <li><b>Minkyoo Song</b>, KAIST, South Korea</li>
+          <li><b>Thorsten Strufe</b>, Karlsruhe Institute of Technology, Germany</li>
+          <li><b>Fatih Turkmen</b>, University of Groningen, Netherlands</li>
+          <li><b>An Wang</b>, Beijing Institute of Technology, China</li>
+          <li><b>Shuai Wang</b>, Hong Kong University of Science and Technology, China</li>
+          <li><b>Xueqiang Wang</b>, University of Central Florida, USA</li>
+          <li><b>Christian Weinert</b>, Royal Holloway, University of London, UK</li>
+          <li><b>Xiaoyun Xu</b>, Beijing Zhongguancun Academy, China</li>
+          <li><b>Zhiyuan Xu</b>, University of Bristol, UK</li>
+        </ul>
       </div>
     </div>
   </section>
