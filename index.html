@@ -110,6 +110,12 @@ p{margin:0}
 .facts .s{font-size:12.5px;color:var(--muted)}
 .intro{margin-top:10px;color:var(--ink-2)}
 .intro a{color:inherit}
+.submit{display:flex;justify-content:center;padding-top:clamp(24px,3.5vw,36px)}
+.submit-btn{display:inline-flex;align-items:center;gap:12px;padding:18px 40px;border-radius:8px;background:var(--accent);color:var(--surface);font-family:var(--display);font-weight:700;font-size:clamp(19px,2.2vw,23px);text-decoration:none;box-shadow:0 6px 20px color-mix(in srgb,var(--accent) 30%,transparent);transition:transform .15s,box-shadow .15s}
+.submit-btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px color-mix(in srgb,var(--accent) 40%,transparent)}
+.submit-btn:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.submit-btn svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media (prefers-reduced-motion: reduce){.submit-btn{transition:none}.submit-btn:hover{transform:none}}
 
 /* sections */
 section.s{padding-block:clamp(40px,6vw,72px);border-bottom:1px solid var(--rule)}
@@ -228,6 +234,12 @@ section.s:first-child{padding-top:clamp(28px,4vw,48px)}
       <div><div class="label">Workshop</div><div class="v">Mon 22 Mar 2027</div><div class="s">Seoul, Korea</div></div>
       <div><div class="label">Proceedings</div><div class="v">Internet Society</div><div class="s">NDSS workshop proceedings</div></div>
     </div>
+    <div class="submit">
+      <a class="submit-btn" href="https://stala27.hotcrp.com/" target="_blank" rel="noopener">
+        Submit your paper
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
   </div>
 </header>
 
@@ -322,7 +334,7 @@ section.s:first-child{padding-top:clamp(28px,4vw,48px)}
           <li><strong>Anonymity:</strong> the review process is double-blind. Submissions must not include author names or affiliations, and authors should cite their own prior work in the third person.</li>
           <li><strong>Originality:</strong> submissions must not substantially overlap with papers already published or simultaneously submitted to a journal, conference or workshop.</li>
           <li><strong>Policies:</strong> submissions must follow the <a href="https://www.ndss-symposium.org/ndss2027/submissions/call-for-papers/">NDSS 2027 policies</a>, including disclosure of generative AI use and treatment of ethical considerations.</li>
-          <li><strong>Submission site:</strong> <span class="tba">Opens soon</span></li>
+          <li><strong>Submission site:</strong> <a href="https://stala27.hotcrp.com/">stala27.hotcrp.com</a></li>
         </ul>
 
         <h3 class="sub-h">Publication and presentation</h3>
